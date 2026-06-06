@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>智学课堂评价平台</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <button class="brand" type="button" data-page="task1" aria-label="返回任务一">
+          <span class="brand-mark">5C</span>
+          <span class="brand-copy">
+            <strong>智学课堂评价平台</strong>
+          </span>
+        </button>
+
+        <nav class="main-nav" aria-label="主导航">
+          <div class="nav-group">
+            <button class="nav-button" type="button" id="taskMenuButton" aria-expanded="false">
+              任务
+            </button>
+            <div class="task-menu" id="taskMenu" aria-label="任务菜单">
+              <button type="button" data-page="task1">任务一：非遗饰品展演</button>
+              <button type="button" data-page="task2">任务二：中外交流模拟</button>
+            </div>
+          </div>
+          <button class="nav-button" type="button" data-page="task1" data-nav-role="student">学生端</button>
+          <button class="nav-button" type="button" data-page="summary" data-nav-role="teacher">教师端</button>
+        </nav>
+      </header>
+
+      <main>
+        <section class="page is-active" id="task1" aria-labelledby="task1Title">
+          <div class="intro-band">
+            <div class="intro-copy">
+              <h1 id="task1Title">融实践 助文化交流</h1>
+              <p class="project-name">成果展示活动课</p>
+              <h2>任务一:非遗饰品展演</h2>
+            </div>
+            <figure class="artifact-visual">
+              <img src="../五展柜爱心点赞标签版.png" alt="非遗首饰展柜点赞展示区" />
+            </figure>
+          </div>
+
+          <section class="content-section" aria-labelledby="task1TableTitle">
+            <div class="section-heading">
+              <span>Self-evaluation& Peer-evaluation 自评和他评</span>
+              <h3 id="task1TableTitle">5C评价表</h3>
+            </div>
+            <div class="table-wrap">
+              <table class="rating-table">
+                <thead>
+                  <tr>
+                    <th>评价维度</th>
+                    <th>评价要点</th>
+                    <th>学生自评</th>
+                    <th>小组互评</th>
+                  </tr>
+                </thead>
+                <tbody id="task1Rows"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="content-section score-entry" id="scoreEntry" aria-labelledby="scoreEntryTitle">
+            <div class="section-heading">
+              <span>专家（非遗传承人）评价</span>
+              <h3 id="scoreEntryTitle">分数录入</h3>
+            </div>
+            <div class="score-inputs">
+              <label>
+                <span>所在组别</span>
+                <select id="groupName">
+                  <option value="非遗绒花">非遗绒花</option>
+                  <option value="掐丝珐琅">掐丝珐琅</option>
+                  <option value="三条簪">三条簪</option>
+                </select>
+              </label>
+              <label>
+                <span>分数</span>
+                <input id="finalScoreInput" type="number" min="0" max="100" step="1" value="90" />
+              </label>
+            </div>
+          </section>
+
+          <section class="submit-section" aria-label="任务一提交">
+            <button class="submit-button" type="button" data-submit-page="task1">提交评价</button>
+          </section>
+        </section>
+
+        <section class="page" id="task2" aria-labelledby="task2Title" hidden>
+          <div class="intro-band">
+            <div class="intro-copy">
+              <h1 id="task2Title">融实践 助文化交流</h1>
+              <p class="project-name">成果展示活动课</p>
+              <h2>任务二:中外交流模拟</h2>
+            </div>
+            <figure class="artifact-visual">
+              <img src="../五展柜爱心点赞标签版.png" alt="非遗首饰展柜点赞展示区" />
+            </figure>
+          </div>
+
+          <section class="content-section" aria-labelledby="task2TableTitle">
+            <div class="section-heading">
+              <span>Self-evaluation& Peer-evaluation 自评和他评</span>
+              <h3 id="task2TableTitle">5C评价表</h3>
+            </div>
+            <div class="table-wrap">
+              <table class="rating-table">
+                <thead>
+                  <tr>
+                    <th>评价维度</th>
+                    <th>评价要点</th>
+                    <th>学生自评</th>
+                    <th>小组互评</th>
+                  </tr>
+                </thead>
+                <tbody id="task2Rows"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="submit-section" aria-label="任务二提交">
+            <button class="submit-button" type="button" data-submit-page="task2">提交评价</button>
+          </section>
+        </section>
+
+        <section class="page teacher-page" id="summary" aria-labelledby="summaryTitle" hidden>
+          <section class="teacher-hero">
+            <div>
+              <span class="teacher-label">教师端</span>
+              <h1 id="summaryTitle">5C课堂评价</h1>
+              <p class="project-name">融实践 助文化交流 成果展示活动课</p>
+            </div>
+          </section>
+
+          <section class="content-section teacher-module score-rule-module" aria-labelledby="scoreRuleTitle">
+            <div class="section-heading">
+              <h3 id="scoreRuleTitle">总分说明</h3>
+            </div>
+            <div class="formula-grid">
+              <article class="formula-card">
+                <strong>任务1得分 × 5</strong>
+                <span>学生端任务一评价赋分</span>
+              </article>
+              <article class="formula-card">
+                <strong>专家分数 × 0.5</strong>
+                <span>非遗传承人专家评价</span>
+              </article>
+              <article class="formula-card">
+                <strong>任务2得分 × 5</strong>
+                <span>学生端任务二评价赋分</span>
+              </article>
+              <article class="formula-card total">
+                <strong>= 100分</strong>
+                <span>综合总分</span>
+              </article>
+            </div>
+            <h4 class="rating-heading">分数评级</h4>
+            <div class="teacher-levels" aria-label="评级说明">
+              <article>
+                <span>90分-100分</span>
+                <strong>匠心高手</strong>
+                <small>Master Learner</small>
+              </article>
+              <article>
+                <span>80分-90分</span>
+                <strong>启航能手</strong>
+                <small>Advanced Learner</small>
+              </article>
+              <article>
+                <span>60分-80分</span>
+                <strong>进阶新手</strong>
+                <small>Beginner</small>
+              </article>
+            </div>
+          </section>
+
+          <section class="content-section teacher-module" aria-labelledby="scoreBreakdownTitle">
+            <div class="section-heading">
+              <h3 id="scoreBreakdownTitle">学生得分情况</h3>
+            </div>
+            <div class="table-wrap">
+              <table class="teacher-table score-breakdown-table">
+                <thead>
+                  <tr>
+                    <th>学号</th>
+                    <th>任务一原始</th>
+                    <th>任务一赋分×5</th>
+                    <th>专家分</th>
+                    <th>专家×0.5</th>
+                    <th>任务二原始</th>
+                    <th>任务二赋分×5</th>
+                    <th>综合总分</th>
+                    <th>评级</th>
+                  </tr>
+                </thead>
+                <tbody id="scoreBreakdownRows"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="content-section teacher-module" aria-labelledby="scoreOverviewTitle">
+            <div class="section-heading">
+              <h3 id="scoreOverviewTitle">学生得分一览表</h3>
+            </div>
+            <div class="chart-legend" aria-hidden="true">
+              <span><i class="legend-advanced"></i>进阶能手</span>
+              <span><i class="legend-master"></i>匠心高手</span>
+            </div>
+            <div class="score-chart-wrap">
+              <div class="score-chart" id="scoreChart" aria-label="学生得分柱状图"></div>
+            </div>
+          </section>
+
+          <section class="content-section teacher-module ai-panel" aria-labelledby="aiTitle">
+            <div class="section-heading">
+              <h3 id="aiTitle">AI学习建议</h3>
+            </div>
+            <label class="teacher-select">
+              <span>选择学号</span>
+              <select id="studentAdviceSelect"></select>
+            </label>
+            <div class="table-wrap">
+              <table class="teacher-table advice-table">
+                <thead>
+                  <tr>
+                    <th>学号</th>
+                    <th>综合总分</th>
+                    <th>评级</th>
+                    <th>优点肯定</th>
+                    <th>改进期许</th>
+                    <th>AI建议</th>
+                  </tr>
+                </thead>
+                <tbody id="adviceRows"></tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
