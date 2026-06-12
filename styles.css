@@ -610,21 +610,58 @@ h3 {
 }
 
 .teacher-hero {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(430px, 1fr) minmax(420px, 0.95fr);
+  gap: 22px;
   align-items: center;
   min-height: 220px;
-  padding: 34px;
+  padding: 24px;
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: 8px;
   box-shadow: var(--shadow);
 }
 
+.teacher-hero-copy {
+  min-width: 0;
+}
+
+#summaryTitle {
+  white-space: nowrap;
+  font-size: 42px;
+  line-height: 1.08;
+}
+
+.teacher-hero-copy .project-name {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.teacher-visual {
+  margin: 0;
+  overflow: hidden;
+  min-height: 220px;
+  aspect-ratio: 1431 / 723;
+  background: rgba(3, 23, 53, 0.42);
+  border: 1px solid rgba(216, 236, 255, 0.2);
+  border-radius: 8px;
+}
+
+.teacher-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 .teacher-label {
   display: inline-flex;
   margin-bottom: 12px;
   color: var(--cyan-280);
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 900;
 }
 
@@ -649,12 +686,57 @@ h3 {
 
 .formula-card,
 .teacher-levels article {
+  position: relative;
   display: grid;
   gap: 6px;
   padding: 18px;
   background: rgba(3, 23, 53, 0.34);
   border: 1px solid rgba(216, 236, 255, 0.18);
   border-radius: 8px;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.interactive-card {
+  cursor: pointer;
+  user-select: none;
+}
+
+.interactive-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(145, 228, 255, 0.58);
+  background: rgba(12, 68, 145, 0.52);
+}
+
+.interactive-card:focus-visible {
+  outline: 3px solid rgba(145, 228, 255, 0.7);
+  outline-offset: 3px;
+}
+
+.interactive-card:focus,
+.interactive-card.is-highlighted {
+  transform: translateY(-2px);
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 215, 106, 0.24), transparent 34%),
+    linear-gradient(135deg, rgba(17, 91, 184, 0.95), rgba(5, 142, 172, 0.78));
+  border-color: rgba(255, 215, 106, 0.92);
+  box-shadow:
+    0 0 0 2px rgba(255, 215, 106, 0.16),
+    0 0 24px rgba(145, 228, 255, 0.42),
+    0 12px 32px rgba(0, 9, 30, 0.34);
+}
+
+.interactive-card:focus::after,
+.interactive-card.is-highlighted::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
 }
 
 .formula-card strong {
@@ -1012,6 +1094,14 @@ h3 {
     grid-template-columns: repeat(2, minmax(150px, 1fr));
   }
 
+  .teacher-hero {
+    grid-template-columns: 1fr;
+  }
+
+  #summaryTitle {
+    white-space: normal;
+  }
+
   .formula-grid,
   .teacher-levels {
     grid-template-columns: repeat(2, minmax(180px, 1fr));
@@ -1041,6 +1131,11 @@ h3 {
     font-size: 34px;
   }
 
+  #summaryTitle {
+    white-space: normal;
+    font-size: 30px;
+  }
+
   h2 {
     font-size: 28px;
   }
@@ -1057,6 +1152,10 @@ h3 {
     font-size: 18px;
   }
 
+  .teacher-hero-copy .project-name {
+    font-size: 20px;
+  }
+
   .content-section,
   .score-board,
   .level-panel {
@@ -1068,8 +1167,15 @@ h3 {
   }
 
   .teacher-hero {
+    grid-template-columns: 1fr;
+    gap: 16px;
     min-height: 180px;
     padding: 22px;
+  }
+
+  .teacher-visual {
+    width: 100%;
+    min-height: 170px;
   }
 
   .formula-grid,

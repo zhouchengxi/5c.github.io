@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>智学课堂评价平台</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260607-4" />
   </head>
   <body>
     <div class="app-shell">
@@ -98,7 +98,7 @@
               <h2>任务二:中外交流模拟</h2>
             </div>
             <figure class="artifact-visual">
-              <img src="exhibition-showcase-likes.png" alt="非遗首饰展柜点赞展示区" />
+              <img src="international-exchange-simulation.png" alt="中外交流模拟展厅场景" />
             </figure>
           </div>
 
@@ -129,11 +129,14 @@
 
         <section class="page teacher-page" id="summary" aria-labelledby="summaryTitle" hidden>
           <section class="teacher-hero">
-            <div>
+            <div class="teacher-hero-copy">
               <span class="teacher-label">教师端</span>
-              <h1 id="summaryTitle">5C课堂评价</h1>
-              <p class="project-name">融实践 助文化交流 成果展示活动课</p>
+              <h1 id="summaryTitle">鲁班工坊非遗饰品成果展示</h1>
+              <p class="project-name">学生得分反馈&amp;AI学习建议</p>
             </div>
+            <figure class="teacher-visual">
+              <img src="teacher-luban-workshop.png" alt="鲁班工坊中外交流活动大屏" />
+            </figure>
           </section>
 
           <section class="content-section teacher-module score-rule-module" aria-labelledby="scoreRuleTitle">
@@ -141,15 +144,15 @@
               <h3 id="scoreRuleTitle">总分说明</h3>
             </div>
             <div class="formula-grid">
-              <article class="formula-card">
+              <article class="formula-card interactive-card" data-highlight-card tabindex="0" role="button" aria-pressed="false">
                 <strong>任务1得分 × 5</strong>
                 <span>学生端任务一评价赋分</span>
               </article>
-              <article class="formula-card">
+              <article class="formula-card interactive-card" data-highlight-card tabindex="0" role="button" aria-pressed="false">
                 <strong>专家分数 × 0.5</strong>
                 <span>非遗传承人专家评价</span>
               </article>
-              <article class="formula-card">
+              <article class="formula-card interactive-card" data-highlight-card tabindex="0" role="button" aria-pressed="false">
                 <strong>任务2得分 × 5</strong>
                 <span>学生端任务二评价赋分</span>
               </article>
@@ -160,17 +163,17 @@
             </div>
             <h4 class="rating-heading">分数评级</h4>
             <div class="teacher-levels" aria-label="评级说明">
-              <article>
+              <article class="interactive-card" data-highlight-card tabindex="0" role="button" aria-pressed="false">
                 <span>90分-100分</span>
                 <strong>匠心高手</strong>
                 <small>Master Learner</small>
               </article>
-              <article>
+              <article class="interactive-card" data-highlight-card tabindex="0" role="button" aria-pressed="false">
                 <span>80分-90分</span>
                 <strong>启航能手</strong>
                 <small>Advanced Learner</small>
               </article>
-              <article>
+              <article class="interactive-card" data-highlight-card tabindex="0" role="button" aria-pressed="false">
                 <span>60分-80分</span>
                 <strong>进阶新手</strong>
                 <small>Beginner</small>
@@ -243,6 +246,6 @@
       </main>
     </div>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=20260607-4"></script>
   </body>
 </html>

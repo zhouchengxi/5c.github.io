@@ -232,6 +232,31 @@ function lockPage(pageId) {
   }
 }
 
+function toggleHighlightCard(card) {
+  const isHighlighted = card.classList.toggle("is-highlighted");
+  card.setAttribute("aria-pressed", String(isHighlighted));
+}
+
+function initHighlightCards() {
+  document.querySelectorAll("[data-highlight-card]").forEach((card) => {
+    card.dataset.highlightReady = "true";
+
+    card.addEventListener("click", (event) => {
+      event.stopPropagation();
+      toggleHighlightCard(card);
+    });
+
+    card.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") {
+        return;
+      }
+
+      event.preventDefault();
+      toggleHighlightCard(card);
+    });
+  });
+}
+
 function showPage(pageId, focusTarget) {
   document.querySelectorAll(".page").forEach((page) => {
     const isActive = page.id === pageId;
@@ -242,6 +267,7 @@ function showPage(pageId, focusTarget) {
   syncNavState(pageId);
 
   closeTaskMenu();
+
   window.scrollTo({ top: 0, behavior: "smooth" });
 
   if (focusTarget) {
@@ -444,6 +470,7 @@ renderScoreBreakdown();
 renderScoreChart();
 renderAdviceOptions();
 updateSuggestions();
+initHighlightCards();
 syncNavState("task1");
 
 taskMenuButton.addEventListener("click", () => {
